@@ -1,0 +1,30 @@
+body,
+html,
+.App,
+.ReactApp {
+    height: 100%;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+
+    .Menubar {
+        height: 32px;
+        width: 100%;
+    }
+
+    .Content {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+
+        .Plots {
+            width: 30%;
+        }
+
+        .Viewer {
+            flex: 1;
+        }
+    }
+}

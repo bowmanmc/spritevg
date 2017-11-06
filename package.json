@@ -1,0 +1,31 @@
+{
+  "name": "spritevg",
+  "version": "1.0.0",
+  "description": "Generate SVG Symbol sheets",
+  "main": "start.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Bowman <bowmanmc@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "electron": "^1.8.1",
+    "electron-compile": "^6.4.2",
+    "jquery": "^3.2.1",
+    "moment": "^2.19.1",
+    "normalize.css": "^7.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2017-node7": "^0.5.2",
+    "babel-preset-react": "^6.24.1",
+    "electron-compilers": "^5.9.0",
+    "react-hot-loader": "^3.1.1"
+  }
+}
