@@ -17,7 +17,8 @@
     "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-dropzone": "^4.2.1"
   },
   "devDependencies": {
     "babel": "^6.23.0",
