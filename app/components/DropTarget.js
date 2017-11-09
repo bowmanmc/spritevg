@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 
 
+const SVG_MIME_TYPE = 'image/svg+xml';
+
 class DropTarget extends Component {
 
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            accept: 'image/svg+xml',
-            files: [],
             dropzoneActive: false
         };
 
@@ -29,11 +29,11 @@ class DropTarget extends Component {
 
     onDrop(files) {
         files.map(f => console.log('name: ' + f.name));
-        this.setState({files, dropzoneActive: false});
+        this.setState({dropzoneActive: false});
     }
 
     render() {
-        const { accept, files, dropzoneActive } = this.state;
+        const { dropzoneActive } = this.state;
         const overlayStyle = {
             position: 'absolute',
             top: 0,
@@ -44,9 +44,10 @@ class DropTarget extends Component {
             textAlign: 'center',
             color: '#fff'
         };
+
         return (
             <Dropzone disableClick={true}
-                accept={accept}
+                accept={SVG_MIME_TYPE}
                 className="DropTarget"
                 onDrop={this.onDrop}
                 onDragEnter={this.onDragEnter}
