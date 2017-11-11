@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 
+import FileProcessor from './FileProcessor';
+
 
 const SVG_MIME_TYPE = 'image/svg+xml';
 
@@ -28,7 +30,11 @@ class DropTarget extends Component {
     }
 
     onDrop(files) {
-        files.map(f => console.log('name: ' + f.name));
+        files.map(f => {
+            console.log('name: ' + f.name)
+            debugger;
+            FileProcessor.processFile(f.path);
+        });
         this.setState({dropzoneActive: false});
     }
 
