@@ -8,13 +8,18 @@ describe('FileProcessor.processFile', () => {
     const homePath = `${svgdir}/home.svg`;
     const pencilPath = `${svgdir}/pencil.svg`;
 
-    it('Should handle svg sprite sheets', () => {
+    it('handles svg sprite sheets', () => {
         let sprites = FileProcessor.processFile(spritePath);
         expect(sprites.length).toBe(3);
     });
 
-    it('Should handle svg files', () => {
+    it('handles plain svg files', () => {
+        let sprites = FileProcessor.processFile(homePath);
+        expect(sprites.length).toBe(1);
+    });
+
+    it('handles combo svg files', () => {
         let sprites = FileProcessor.processFile(headphonesPath);
-        console.log('# of sprites: ' + sprites.length);
+        expect(sprites.length).toBe(2);
     });
 });

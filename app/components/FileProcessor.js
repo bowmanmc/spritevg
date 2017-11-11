@@ -17,16 +17,15 @@ export default {
 
         // Is this already a spritesheet?
         let sprites = $('svg').find('symbol');
-        console.log(`Parsed ${sprites.length} symbols from ${filepath}`);
         sprites.each((i, sprite) => {
             results.push($(sprite).parent().html());
         });
 
-        if (results.length < 1) {
-            // convert the svg file into a symbol
-            // remove any defs
-            $('defs').remove()
-
+        // convert the svg file into a symbol if it has data
+        // remove any defs
+        $('defs').remove()
+        const children = $('svg').children();
+        if (children.length > 0) {
             let id = $('svg').attr('id');
             if (!id) {
                 let title = $('title').text();
@@ -48,12 +47,11 @@ export default {
             const doc = cheerio.load(`<symbol id=${id}></symbol>`);
             doc('symbol').attr('viewBox', viewBox);
 
-            const children = $('svg').children();
             children.each((i, child) => {
                 doc('symbol').append(child);
             });
 
-            console.log('SVG: ' + doc('symbol').parent().html());
+            results.push(doc('symbol').parent().html());
         }
 
         return results;
