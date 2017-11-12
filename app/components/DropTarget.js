@@ -30,11 +30,11 @@ class DropTarget extends Component {
     }
 
     onDrop(files) {
-        files.map(f => {
-            console.log('name: ' + f.name)
-            debugger;
-            FileProcessor.processFile(f.path);
+        let symbols = [];
+        files.forEach(file => {
+            symbols = symbols.concat(FileProcessor.processFile(file.path));
         });
+        this.props.onAdd(symbols);
         this.setState({dropzoneActive: false});
     }
 

@@ -1,10 +1,13 @@
 import fs from 'fs';
 import cheerio from 'cheerio';
+import moment from 'moment';
 
 
 export default {
 
     processFile(filepath) {
+        console.log(`Processing ${filepath}...`);
+        const startTime = moment();
         const data = fs.readFileSync(filepath, 'utf-8');
 
         const $ = cheerio.load(data, {
@@ -23,7 +26,9 @@ export default {
 
         // convert the svg file into a symbol if it has data
         // remove any defs
+        $('symbol').remove();
         $('defs').remove()
+
         const children = $('svg').children();
         if (children.length > 0) {
             let id = $('svg').attr('id');
@@ -53,6 +58,10 @@ export default {
 
             results.push(doc('symbol').parent().html());
         }
+
+        const endTime = moment();
+        const diff = endTime.diff(startTime);
+        console.log(`Processed ${filepath} into ${results.length} symbols in ${diff}ms`);
 
         return results;
     }
