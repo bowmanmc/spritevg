@@ -5,6 +5,28 @@ import moment from 'moment';
 
 export default {
 
+    getSymbolObject(symbolElement) {
+        const $ = cheerio.load(symbolElement, {
+            ignoreWhitespace: true,
+            xmlMode: true,
+            lowerCaseTags: true
+        });
+
+        let title = $('title').text();
+        let id = '';
+        if (title) {
+            id = title.replace(/\s/g,'');
+        }
+        let description = $('desc').text();
+
+        return {
+            id: id,
+            title: title,
+            description: description,
+            content: symbolElement
+        };
+    },
+
     processFile(filepath) {
         console.log(`Processing ${filepath}...`);
         const startTime = moment();
@@ -21,7 +43,7 @@ export default {
         // Is this already a spritesheet?
         let sprites = $('svg').find('symbol');
         sprites.each((i, sprite) => {
-            results.push($(sprite).parent().html());
+            results.push(this.getSymbolObject($(sprite).parent().html()));
         });
 
         // convert the svg file into a symbol if it has data
@@ -56,7 +78,8 @@ export default {
                 doc('symbol').append(child);
             });
 
-            results.push(doc('symbol').parent().html());
+            //results.push(doc('symbol').parent().html());
+            results.push(this.getSymbolObject(doc('symbol').parent().html()));
         }
 
         const endTime = moment();

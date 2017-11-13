@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import SymbolViewer from './SymbolViewer';
+
 
 class Viewer extends Component {
 
@@ -10,9 +12,13 @@ class Viewer extends Component {
     }
 
     getSymbols() {
-        const symbols = this.props.symbols.join('');
+        let els = [];
+        this.props.symbols.forEach(symbol => {
+            els.push(symbol.content);
+        });
+
         return {
-            __html: symbols
+            __html: els.join('')
         };
     }
 
@@ -24,6 +30,9 @@ class Viewer extends Component {
                     <defs dangerouslySetInnerHTML={this.getSymbols()}>
                     </defs>
                 </svg>
+                {this.props.symbols.map((symbol, i) => {
+                    return <SymbolViewer key={i} symbol={symbol} />
+                })}
             </div>
         );
     }
