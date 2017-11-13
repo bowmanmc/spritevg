@@ -59,6 +59,7 @@ class DropTarget extends Component {
                 onDragEnter={this.onDragEnter}
                 onDragLeave={this.onDragLeave}>
                 { dropzoneActive && <div style={overlayStyle}>Drop files...</div> }
+                {this.props.children}
             </Dropzone>
         );
     }

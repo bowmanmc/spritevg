@@ -26,7 +26,7 @@ class Viewer extends Component {
 
         return (
             <div className="Viewer">
-                <svg>
+                <svg style={{display:'none'}}>
                     <defs dangerouslySetInnerHTML={this.getSymbols()}>
                     </defs>
                 </svg>

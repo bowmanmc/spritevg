@@ -32,8 +32,9 @@ class App extends Component {
             <div className="App">
                 <Menubar />
                 <div className="Content">
-                    <Viewer symbols={symbols} />
-                    <DropTarget onAdd={this.addSymbols} />
+                    <DropTarget onAdd={this.addSymbols}>
+                        <Viewer symbols={symbols} />
+                    </DropTarget>
                 </div>
             </div>
         );

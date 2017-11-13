@@ -1,6 +1,7 @@
 import fs from 'fs';
 import cheerio from 'cheerio';
 import moment from 'moment';
+import uuidv1 from 'uuid/v1';
 
 
 export default {
@@ -13,11 +14,27 @@ export default {
         });
 
         let title = $('title').text();
-        let id = '';
-        if (title) {
+        let id = $('svg').attr('id');
+        if (!id) {
+            id = $('symbol').attr('id');
+        }
+
+        if (!id && title) {
             id = title.replace(/\s/g,'');
         }
+        else if (!id){
+            let uuid = uuidv1().replace(/-/g,'');
+            id = uuid.substr(uuid.length - 6);
+        }
+
+        if (!title) {
+            title = id;
+        }
+
         let description = $('desc').text();
+        if (!description) {
+            description = `Description for symbol ${title}`;
+        }
 
         return {
             id: id,
@@ -53,16 +70,8 @@ export default {
 
         const children = $('svg').children();
         if (children.length > 0) {
-            let id = $('svg').attr('id');
-            if (!id) {
-                let title = $('title').text();
-                if (title) {
-                    id = title.replace(/\s/g,'');
-                }
-                else {
-                    id = '';
-                }
-            }
+
+            const { id } = this.getSymbolObject($('svg').html());
 
             const width = $('svg').attr('width');
             const height = $('svg').attr('height');
