@@ -7,6 +7,7 @@ import uuidv1 from 'uuid/v1';
 export default {
 
     getSymbolObject(symbolElement) {
+        console.log('Looking for symbol in: ' + symbolElement);
         const $ = cheerio.load(symbolElement, {
             ignoreWhitespace: true,
             xmlMode: true,
@@ -60,8 +61,9 @@ export default {
         // Is this already a spritesheet?
         let sprites = $('svg').find('symbol');
         sprites.each((i, sprite) => {
-            results.push(this.getSymbolObject($(sprite).parent().html()));
+            results.push(this.getSymbolObject($.html(sprite)));
         });
+        //console.log('Found symbols: ' + JSON.stringify(results));
 
         // convert the svg file into a symbol if it has data
         // remove any defs

@@ -1,8 +1,11 @@
 
 .Viewer {
     bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
     left: 0;
     overflow-y: auto;
+    padding: 2.0em 1.0em;
     position: absolute;
     right: 0;
     top: 0;

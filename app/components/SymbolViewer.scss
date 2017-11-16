@@ -1,0 +1,25 @@
+.SymbolViewer {
+    min-width: 300px;
+    margin: 1.0em 0.5em;
+    padding: 1.0em;
+    text-align: center;
+    width: 20%;
+
+    h2 {
+        color: $clr-gray-20;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    p {
+        color: $clr-gray-45;
+        font-size: 16px;
+    }
+
+    svg {
+        fill: $clr-gray-20;
+        height: 64px;
+        margin: 1.0em;
+        width: 64px;
+    }
+}

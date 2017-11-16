@@ -20,6 +20,15 @@ class DropTarget extends Component {
         this.onDrop = this.onDrop.bind(this);
     }
 
+    componentDidMount() {
+        const f = [{
+            path: '/Users/michael/projects/spritevg/app/test/sprite.svg'
+        }, {
+            path: '/Users/michael/projects/spritevg/app/test/pencil.svg'
+        }];
+        this.onDrop(f);
+    }
+
     onDragEnter() {
         console.log('onDragEnter');
         this.setState({dropzoneActive: true});
