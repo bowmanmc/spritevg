@@ -18,12 +18,8 @@ $clr-gray-15: #222222;
 $clr-gray-10: #171717;
 $clr-black: #000000;
 
+$clr-background: #fafbfe;
+$clr-background-alt: #bdbfbf;
+$clr-highlight: #577398;
 
-$clr-highlight: #49d1e3;
-
-
-$clr-darkblue-01: #3E57A5;
-$clr-darkblue-02: #26304F;
-
-$gradient-blue: linear-gradient(to bottom right, $clr-darkblue-02, darken($clr-darkblue-02, 7%));
 $gradient-colorful: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);

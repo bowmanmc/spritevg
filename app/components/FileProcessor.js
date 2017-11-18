@@ -7,7 +7,6 @@ import uuidv1 from 'uuid/v1';
 export default {
 
     getSymbolObject(symbolElement) {
-        console.log('Looking for symbol in: ' + symbolElement);
         const $ = cheerio.load(symbolElement, {
             ignoreWhitespace: true,
             xmlMode: true,
@@ -32,15 +31,9 @@ export default {
             title = id;
         }
 
-        let description = $('desc').text();
-        if (!description) {
-            description = `Description for symbol ${title}`;
-        }
-
         return {
             id: id,
             title: title,
-            description: description,
             content: symbolElement
         };
     },

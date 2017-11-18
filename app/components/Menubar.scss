@@ -1,12 +1,10 @@
 
 .Menubar {
     align-items: center;
-    background: $clr-darkblue-02;
-    background-image: $gradient-blue;
+    background: $clr-background-alt;
     border-bottom: 2px solid transparent;
-    border-image: $gradient-colorful 90 90 stretch;
-    box-shadow: 0 0 14px transparentize($clr-black, 0.25);
-    color: $clr-gray-90;
+    //border-image: $gradient-colorful 90 90 stretch;
+    color: $clr-gray-20;
     display: flex;
     padding: 0.25em 1.0em;
 }

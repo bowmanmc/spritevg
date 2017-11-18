@@ -14,7 +14,6 @@ class SymbolViewer extends Component {
             <div className="SymbolViewer">
                 <svg><use xlinkHref={'#' + symbol.id} /></svg>
                 <h2>{symbol.title}</h2>
-                <p className="SymbolViewer__description">{symbol.description}</p>
                 <p className="SymbolViewer__id">#{symbol.id}</p>
             </div>
         );

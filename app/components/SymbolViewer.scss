@@ -1,25 +1,33 @@
 .SymbolViewer {
-    min-width: 300px;
-    margin: 1.0em 0.5em;
-    padding: 1.0em;
+    //background: $clr-gray-98;
+    //border: 1px solid $clr-highlight;
+    //border-radius: 0.5em;
+    cursor: pointer;
+    padding: 1.0em 2.5em;
     text-align: center;
-    width: 20%;
 
     h2 {
-        color: $clr-gray-20;
-        font-size: 24px;
+        color: $clr-gray-40;
+        font-size: 16px;
         margin: 0;
     }
 
     p {
-        color: $clr-gray-45;
-        font-size: 16px;
+        color: $clr-gray-60;
+        font-size: 12px;
     }
 
     svg {
-        fill: $clr-gray-20;
+        fill: $clr-gray-15;
         height: 64px;
         margin: 1.0em;
         width: 64px;
     }
+
+    &:hover {
+        svg {
+            fill: $clr-highlight;
+        }
+    }
+
 }
