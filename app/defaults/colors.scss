@@ -20,6 +20,17 @@ $clr-black: #000000;
 
 $clr-background: #fafbfe;
 $clr-background-alt: #bdbfbf;
-$clr-highlight: #577398;
+$clr-highlight: #89b4f1;
 
-$gradient-colorful: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+$clr-purple-lt: lighten(#342546, 5%);
+$clr-purple-dk: #150528;
+
+$gradient-colorful: linear-gradient(
+    to right,
+    $clr-highlight,
+    #40e0d0,
+    yellow,
+    #ec9a5f,
+    #e76057
+);
+$gradient-purple: linear-gradient(to bottom right, $clr-purple-lt, $clr-purple-dk);

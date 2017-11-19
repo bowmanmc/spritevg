@@ -1,7 +1,8 @@
 .SymbolViewer {
-    //background: $clr-gray-98;
-    //border: 1px solid $clr-highlight;
-    //border-radius: 0.5em;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.5em;
+    box-shadow: 0 0 21px transparent;
     cursor: pointer;
     padding: 1.0em 2.5em;
     text-align: center;
@@ -25,8 +26,10 @@
     }
 
     &:hover {
+        background: $clr-white;
+        box-shadow: 0 0 21px transparentize($clr-black, 0.90);
         svg {
-            fill: $clr-highlight;
+            fill: $clr-purple-lt;
         }
     }
 
